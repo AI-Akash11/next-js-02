@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export function FoodCard({ food }) {
-    console.log('from foodcard', food.id)
   return (
     <div className="w-full rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-lg transition">
       {/* Image */}

@@ -16,11 +16,9 @@ const getSingleFood = async (id) => {
 /* ------------------ page ------------------ */
 const Page = async ({ params }) => {
   const { id } = await params;
-    console.log("id",params)
 
 
   const food = await getSingleFood(id);
-  console.log("food",food)
 
   if (!food) {
     return (
