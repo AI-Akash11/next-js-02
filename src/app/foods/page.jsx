@@ -1,12 +1,13 @@
 import { FoodCard } from "@/components/cards/FoodCard";
 import React from "react";
+import CartItems from "./CartItems";
 
 const getFoods = async () => {
   const res = await fetch(
     " https://taxi-kitchen-api.vercel.app/api/v1/foods/random",
   );
   const data = await res.json();
-  await new Promise((resolve)=>setTimeout(resolve,1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return data.foods || [];
 };
 
@@ -18,10 +19,19 @@ const FoodsPage = async () => {
         Total <span className="text-yellow-500">{foods.length}</span> Foods
         found
       </h2>
-      <div className="grid my-5 grid-cols-3 gap-5">
-        {foods.map((food) => (
-          <FoodCard key={food.id} food={food}></FoodCard>
-        ))}
+
+      <div className="flex gap-5">
+        <div className="grid my-5 grid-cols-3 gap-5 flex-1">
+          {foods.map((food) => (
+            <FoodCard key={food.id} food={food}></FoodCard>
+          ))}
+        </div>
+
+        <div className="w-60 border-2 rounded-2xl p-4 space-y-3">
+          <h2 className="text-2xl font-bold">Cart Items</h2> <hr />
+        
+        <CartItems ></CartItems>
+        </div>
       </div>
     </div>
   );

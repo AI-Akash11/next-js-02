@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CartButton from "../buttons/CartButton";
 
 export function FoodCard({ food }) {
   return (
@@ -27,11 +28,7 @@ export function FoodCard({ food }) {
 
         {/* Actions */}
         <div className="flex gap-2 pt-2">
-          <button
-            className="flex-1 rounded-xl bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition"
-          >
-            Add to Cart
-          </button>
+        <CartButton food={food}></CartButton>
 
           <Link
           href={`/foods/${food.id}`}
